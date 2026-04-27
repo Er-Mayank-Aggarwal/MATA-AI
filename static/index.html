@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mata AI | CBSE Question Designer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #6366f1;
@@ -16,106 +19,336 @@
             --border: #e2e8f0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); }
-
-        nav { 
-            background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px);
-            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
-            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border);
-        }
-        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.5px; }
-
-        .container { 
-            display: grid; grid-template-columns: 380px 1fr; gap: 2rem; 
-            padding: 2rem 5%; min-height: calc(100vh - 70px); 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .sidebar { background: var(--card); padding: 2rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.04); height: fit-content; border: 1px solid #edf2f7; }
-        .sidebar h2 { margin-bottom: 1.5rem; font-family: 'Outfit'; font-weight: 700; font-size: 1.4rem; }
-        
-        .form-group { margin-bottom: 1.2rem; }
-        label { display: block; margin-bottom: 0.6rem; font-weight: 600; font-size: 0.85rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
-        
-        select, input { 
-            width: 100%; padding: 0.8rem 1rem; border-radius: 12px; border: 1.5px solid var(--border); 
-            background: #f8fafc; font-size: 1rem; transition: 0.2s ease; font-family: inherit;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
         }
-        select:focus, input:focus { outline: none; border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(99,102,241,0.1); }
 
-        .dist-panel { 
-            background: #f1f5f9; padding: 1.2rem; border-radius: 16px; margin-top: 1.5rem;
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 2rem;
+            padding: 2rem 5%;
+            min-height: calc(100vh - 70px);
+        }
+
+        .sidebar {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            height: fit-content;
+            border: 1px solid #edf2f7;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 1.5rem;
+            font-family: 'Outfit';
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        select,
+        input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            border: 1.5px solid var(--border);
+            background: #f8fafc;
+            font-size: 1rem;
+            transition: 0.2s ease;
+            font-family: inherit;
+        }
+
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+        }
+
+        .dist-panel {
+            background: #f1f5f9;
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin-top: 1.5rem;
             border: 1px dashed #cbd5e1;
         }
-        .dist-panel h4 { font-size: 0.8rem; margin-bottom: 1rem; color: #475569; text-transform: uppercase; }
-        .dist-row { display: grid; grid-template-columns: 1fr 80px; gap: 0.8rem; align-items: center; margin-bottom: 0.6rem; }
-        .dist-row label { margin-bottom: 0; font-size: 0.8rem; color: #334155; text-transform: none; }
-        .dist-row input { padding: 0.5rem; text-align: center; font-weight: 700; }
 
-        .btn-generate { 
-            width: 100%; padding: 1.1rem; border: none; border-radius: 14px; 
+        .dist-panel h4 {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        .dist-row {
+            display: grid;
+            grid-template-columns: 1fr 80px;
+            gap: 0.8rem;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .dist-row label {
+            margin-bottom: 0;
+            font-size: 0.8rem;
+            color: #334155;
+            text-transform: none;
+        }
+
+        .dist-row input {
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .btn-generate {
+            width: 100%;
+            padding: 1.1rem;
+            border: none;
+            border-radius: 14px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1.5rem;
-            font-size: 1rem; box-shadow: 0 4px 12px rgba(99,102,241,0.2);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
         }
-        .btn-generate:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,0.4); }
-        .btn-generate:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-        .preview-area { 
-            background: var(--card); border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-            display: flex; flex-direction: column; border: 1px solid #edf2f7; overflow: hidden;
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
         }
-        .preview-header { 
-            padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; 
-            justify-content: space-between; align-items: center; background: #fff; gap: 1rem;
-        }
-        .preview-header h3 { font-family: 'Outfit'; color: #0f172a; }
-        .preview-content { padding: 2.5rem; overflow-y: auto; flex-grow: 1; }
 
-        .download-btns { display: flex; gap: 0.8rem; }
-        .btn-download { 
-            padding: 0.7rem 1.4rem; border-radius: 10px; border: 1.5px solid var(--border);
-            background: white; cursor: pointer; font-weight: 600; display: none; transition: 0.2s;
-            font-size: 0.85rem; color: #475569;
+        .btn-generate:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
-        .btn-download:hover { background: #f8fafc; border-color: var(--primary); color: var(--primary); }
-        .btn-download.accent { background: var(--primary); color: white; border: none; }
 
-        .q-card { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid #f1f5f9; }
-        .q-card:last-child { border-bottom: none; }
-        .q-meta { display: inline-block; padding: 0.3rem 0.8rem; background: #eef2ff; color: var(--primary); border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.8rem; }
-        .q-title { font-weight: 700; font-size: 1.15rem; color: #1e293b; margin-bottom: 0.8rem; line-height: 1.4; }
-        .q-body { color: #475569; line-height: 1.7; font-size: 1.05rem; }
-        .q-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1.2rem; }
-        .opt { background: #f8fafc; padding: 0.8rem 1.2rem; border-radius: 10px; border: 1.5px solid var(--border); font-size: 0.95rem; }
+        .preview-area {
+            background: var(--card);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #edf2f7;
+            overflow: hidden;
+        }
+
+        .preview-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            gap: 1rem;
+        }
+
+        .preview-header h3 {
+            font-family: 'Outfit';
+            color: #0f172a;
+        }
+
+        .preview-content {
+            padding: 2.5rem;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .download-btns {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-download {
+            padding: 0.7rem 1.4rem;
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            display: none;
+            transition: 0.2s;
+            font-size: 0.85rem;
+            color: #475569;
+        }
+
+        .btn-download:hover {
+            background: #f8fafc;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-download.accent {
+            background: var(--primary);
+            color: white;
+            border: none;
+        }
+
+        .q-card {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .q-card:last-child {
+            border-bottom: none;
+        }
+
+        .q-meta {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: #eef2ff;
+            color: var(--primary);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .q-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #1e293b;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .q-body {
+            color: #475569;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .q-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .opt {
+            background: #f8fafc;
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            border: 1.5px solid var(--border);
+            font-size: 0.95rem;
+        }
 
         @media (max-width: 1000px) {
-            .container { grid-template-columns: 1fr; padding: 1rem; }
-            .preview-header { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
-            .download-btns { width: 100%; }
-            .btn-download { flex: 1; text-align: center; }
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .preview-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+
+            .download-btns {
+                width: 100%;
+            }
+
+            .btn-download {
+                flex: 1;
+                text-align: center;
+            }
         }
 
-        .loader { display: none; text-align: center; padding: 4rem 2rem; }
-        .spinner { width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1.5rem; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .empty-state { text-align: center; color: #94a3b8; padding: 8rem 2rem; }
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #94a3b8;
+            padding: 8rem 2rem;
+        }
     </style>
 </head>
+
 <body>
 
     <nav>
         <div class="logo">MATA.AI</div>
-        <div style="font-size: 0.8rem; color: #64748b; font-weight: 600; display: flex; align-items: center; gap: 8px;">
-            <span style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></span>
-            Groq Llama 3.3 Engine
-        </div>
     </nav>
 
     <div class="container">
         <div class="sidebar">
-            <h2>Designer</h2>
-            
+            <h2>Generate Questions</h2>
+
             <div class="form-group">
                 <label>Class</label>
                 <select id="class" onchange="loadChapters()">
@@ -173,7 +406,8 @@
                     <label>Case Study (4m)</label>
                     <input type="number" class="dist-in" data-type="case_study" value="1" min="0">
                 </div>
-                <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #cbd5e1; display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem;">
+                <div
+                    style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid #cbd5e1; display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem;">
                     <span>Total Questions:</span>
                     <span id="total-display">6</span>
                 </div>
@@ -210,18 +444,18 @@
             const classNum = document.getElementById('class').value;
             const subject = document.getElementById('subject').value;
             const chapterSelect = document.getElementById('chapter');
-            
+
             chapterSelect.innerHTML = '<option>Loading...</option>';
-            
+
             try {
                 const response = await fetch(`/api/v1/curriculum/${classNum}/${subject}`);
                 const data = await response.json();
-                
+
                 // Sort by chapter number
                 const sorted = Object.entries(data.chapters)
                     .sort((a, b) => parseInt(a[0]) - parseInt(b[0]));
-                
-                chapterSelect.innerHTML = sorted.map(([num, info]) => 
+
+                chapterSelect.innerHTML = sorted.map(([num, info]) =>
                     `<option value="${num}">Ch ${num}: ${info.title}</option>`
                 ).join('');
             } catch (err) {
@@ -304,20 +538,20 @@
         function renderPreview(data) {
             const content = document.getElementById('content');
             document.getElementById('preview-title').innerText = data.chapter_name || 'Question Paper Preview';
-            
+
             let html = '';
             data.questions.forEach((q, i) => {
                 const typeLabel = q.type.replace('_', ' ').toUpperCase();
                 html += `
                     <div class="q-card">
                         <div class="q-meta">${typeLabel} • ${q.marks} MARKS</div>
-                        <div class="q-title">Q${i+1}. ${q.question || q.assertion || q.passage || '---'}</div>
+                        <div class="q-title">Q${i + 1}. ${q.question || q.assertion || q.passage || '---'}</div>
                         ${q.reason ? `<div class="q-body"><b>Reason (R):</b> ${q.reason}</div>` : ''}
                         ${q.sub_questions ? `
                             <div style="margin-top: 1rem; padding-left: 1rem; border-left: 2px solid #e2e8f0;">
                                 ${q.sub_questions.map((sq, idx) => `
                                     <div style="margin-bottom: 0.8rem;">
-                                        <div style="font-size: 0.9rem; font-weight: 600;">${idx+1}) ${sq.q} (${sq.marks} Mark)</div>
+                                        <div style="font-size: 0.9rem; font-weight: 600;">${idx + 1}) ${sq.q} (${sq.marks} Mark)</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -353,4 +587,5 @@
         }
     </script>
 </body>
+
 </html>
