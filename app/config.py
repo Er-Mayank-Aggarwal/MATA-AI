@@ -5,6 +5,7 @@ from functools import lru_cache
 
 class Settings(BaseSettings):
     groq_api_key: str
+    groq_api_key_2: Optional[str] = None
     groq_model: str = "llama-3.3-70b-versatile"
     port: int = 8000
     env: str = "production"

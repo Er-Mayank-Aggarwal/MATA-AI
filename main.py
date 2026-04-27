@@ -2,18 +2,15 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
-from slowapi import Limiter, _rate_limit_exceeded_handler
-from slowapi.util import get_remote_address
+from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 
 from app.routes.question_routes import router
 from app.middleware.error_handler import global_exception_handler, validation_exception_handler
 from app.config import get_settings
+from app.utils.limiter import limiter
 
 settings = get_settings()
-
-# Rate limiter
-limiter = Limiter(key_func=get_remote_address)
 
 app = FastAPI(
     title="CBSE Question Generator API",

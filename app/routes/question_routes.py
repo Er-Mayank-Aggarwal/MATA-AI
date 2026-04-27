@@ -11,10 +11,14 @@ from app.services.pdf_service import create_questions_pdf, create_solutions_pdf
 router = APIRouter(prefix="/api/v1", tags=["Questions"])
 
 
+from app.utils.limiter import limiter
+from fastapi import Request
+
 @router.post("/questions/generate", response_model=GenerateQuestionsResponse)
-async def generate_questions(request: GenerateQuestionsRequest):
+@limiter.limit("5/minute")
+async def generate_questions(request: Request, body: GenerateQuestionsRequest):
     """Generate unique CBSE questions (JSON format for live preview)."""
-    return await handle_generate_questions(request)
+    return await handle_generate_questions(body)
 
 
 @router.post("/questions/download/questions")
