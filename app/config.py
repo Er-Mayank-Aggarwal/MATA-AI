@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings
 from pydantic import field_validator
 from functools import lru_cache
+from typing import Optional
 
 
 class Settings(BaseSettings):
