@@ -9,7 +9,21 @@ class QuestionPaperPDF(FPDF):
         
         self.set_font('helvetica', 'B', 16)
         self.set_text_color(44, 62, 80)
-        self.cell(0, 20, 'CBSE QUESTION BANK', ln=True, align='C')
+        self.cell(0, 0, 'CBSE QUESTION BANK', ln=True, align='C')
+        
+        # Add Watermark Logo (Centered and Faded)
+        try:
+            with self.local_context(fill_opacity=0.1):
+                # A4 dimensions: 210mm x 297mm
+                logo_w = 100
+                x = (210 - logo_w) / 2
+                y = (297 - logo_w) / 2
+                # Using the pre-cropped circular PNG
+                self.image('logo.jpg', x=x, y=y, w=logo_w)
+        except Exception:
+            # Fallback if image is missing or error occurs
+            pass
+            
         self.ln(5)
 
     def footer(self):
