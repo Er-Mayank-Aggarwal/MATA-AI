@@ -22,3 +22,11 @@ static/generated_pdfs/
 # OS
 .DS_Store
 Thumbs.db
+
+# Testing
+test.json
+test_pdf_logic.py
+test_*.pdf
+logo_circular.png
+logo.jpg
+crop_logo.py
