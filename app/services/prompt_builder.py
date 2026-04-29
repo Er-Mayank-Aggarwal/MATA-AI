@@ -1,4 +1,5 @@
 from app.constants.curriculum import CURRICULUM, QUESTION_TYPES
+from app.constants.grounding import GROUNDING_DATA
 
 
 def build_question_prompt(
@@ -21,7 +22,15 @@ def build_question_prompt(
     distribution_text = _format_distribution(question_distribution, total_questions)
     difficulty_text = _format_difficulty(difficulty)
 
+    # Fetch grounding focus points (chapter-specific)
+    focus_points = GROUNDING_DATA.get(class_number, {}).get(subject, {}).get(chapter_number, [])
+    focus_text = "\n".join([f"  - {point}" for point in focus_points]) if focus_points else "  - Use general CBSE standards for this subject."
+
     prompt = f"""You are a senior CBSE question paper setter with 15+ years of experience designing board exam papers for Class {class_number}.
+
+## STEP 0 — CBSE PYQ GROUNDING (Crucial)
+To ensure the questions are not random and are highly relevant to actual board exams, prioritize these recurring themes and high-weightage concepts for this subject/class:
+{focus_text}
 
 ## TASK
 Generate exactly {total_questions} high-quality questions for:
@@ -34,12 +43,12 @@ Generate exactly {total_questions} high-quality questions for:
 ---
 
 ## STEP 1 — ANALYZE BEFORE GENERATING (Critical)
-Before writing any question, recall from your training knowledge:
-1. The pattern of CBSE board questions asked from this chapter in past 5–10 years
-2. Which topics from this chapter are most frequently tested in CBSE exams
-3. Common student mistakes and misconceptions in this chapter
-4. The exact language and phrasing style used in CBSE official question papers
-5. The weightage of this chapter in the CBSE marking scheme
+Before writing any question, recall from your training knowledge and the **PYQ GROUNDING** focus points in Step 0:
+1. The pattern of CBSE board questions asked from this chapter in past 5–10 years.
+2. Which topics from this chapter are most frequently tested (Prioritize the points in Step 0).
+3. Common student mistakes and misconceptions in this chapter.
+4. The exact language and phrasing style used in CBSE official question papers.
+5. The weightage of this chapter in the CBSE marking scheme.
 
 Use all of the above analysis to ensure your questions are exam-realistic and follow CBSE standards precisely.
 
