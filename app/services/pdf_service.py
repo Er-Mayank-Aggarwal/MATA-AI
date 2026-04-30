@@ -5,15 +5,17 @@ class QuestionPaperPDF(FPDF):
     def header(self):
         # Background color for header
         self.set_fill_color(240, 240, 240)
-        self.rect(0, 0, 210, 35, 'F') # Increased height slightly
+        self.rect(0, 0, 210, 30, 'F') # Reduced height to 30mm
         
-        self.set_y(12) # Move down to center text vertically in the 35mm header
+        self.set_y(10) # Position title
         self.set_font('helvetica', 'B', 16)
         self.set_text_color(44, 62, 80)
         self.cell(0, 10, 'Proton Hub QUESTION BANK', ln=True, align='C')
         
         # Add Watermark Logo (Centered and Faded)
         try:
+            # We don't want the logo to move the cursor for content
+            current_y = self.get_y()
             with self.local_context(fill_opacity=0.1):
                 # A4 dimensions: 210mm x 297mm
                 logo_w = 100
@@ -21,11 +23,12 @@ class QuestionPaperPDF(FPDF):
                 y = (297 - logo_w) / 2
                 # Using the pre-cropped circular PNG
                 self.image('logo.jpg', x=x, y=y, w=logo_w)
+            self.set_y(current_y)
         except Exception:
-            # Fallback if image is missing or error occurs
             pass
             
-        self.ln(5)
+        # EXPLICITLY set the cursor to the top margin to avoid overlap
+        self.set_y(self.t_margin)
 
     def footer(self):
         self.set_y(-15)
@@ -49,7 +52,7 @@ def sanitize_text(text: str) -> str:
 
 def create_questions_pdf(data: dict, metadata: dict) -> bytes:
     pdf = QuestionPaperPDF()
-    pdf.set_margins(15, 40, 15)
+    pdf.set_margins(15, 50, 15)
     pdf.add_page()
     effective_width = pdf.epw
     
@@ -103,7 +106,7 @@ def create_questions_pdf(data: dict, metadata: dict) -> bytes:
 
 def create_solutions_pdf(data: dict, metadata: dict) -> bytes:
     pdf = QuestionPaperPDF()
-    pdf.set_margins(15, 40, 15)
+    pdf.set_margins(15, 50, 15)
     pdf.add_page()
     effective_width = pdf.epw
     
