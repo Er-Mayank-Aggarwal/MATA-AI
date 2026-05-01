@@ -23,7 +23,7 @@ GROUNDING_DATA = {
             15: ["Classical definition of probability", "Problems on cards, dice, and coins"]
         },
         "science": {
-            1: ["Balanced chemical equations", "Types of reactions: Redox, Decomposition, Displacement", "Corrosion and Rancidity"],
+            1: ["Balanced chemical equations", "Types of reactions: Combination, Decomposition, Displacement, Double Displacement", "Oxidation and Reduction (Redox)", "Exothermic and Endothermic reactions", "Corrosion and Rancidity in daily life"],
             2: ["pH scale importance in daily life", "Preparation and uses of Bleaching Powder, Baking Soda, Washing Soda, POP", "Properties of acids/bases"],
             3: ["Reactivity series and its application", "Properties of ionic compounds", "Metallurgy: Roasting and Calcination"],
             4: ["Covalent bonding in carbon", "Homologous series", "Saponification and Esterification", "Nomenclature"],

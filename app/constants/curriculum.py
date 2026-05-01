@@ -88,7 +88,7 @@ CURRICULUM = {
         "science": {
             "subject_full": "Science (Class 10)",
             "chapters": {
-                1:  {"title": "Chemical Reactions and Equations",    "topics": ["Balanced chemical equations", "Types of reactions (Combination, Decomposition, Displacement, etc.)", "Oxidation and reduction"]},
+                1:  {"title": "Chemical Reactions and Equations",    "topics": ["Balanced chemical equations", "Combination reactions", "Decomposition reactions", "Displacement reactions", "Double Displacement reactions", "Oxidation and reduction (Redox)", "Exothermic and Endothermic reactions", "Effects of oxidation in everyday life (Corrosion and Rancidity)"]},
                 2:  {"title": "Acids, Bases and Salts",              "topics": ["Indicators", "pH scale importance", "Neutralization", "Preparation of Sodium Hydroxide, Bleaching Powder, Baking Soda"]},
                 3:  {"title": "Metals and Non-metals",               "topics": ["Physical/Chemical properties", "Reactivity series", "Metallurgy", "Corrosion and prevention"]},
                 4:  {"title": "Carbon and its Compounds",            "topics": ["Covalent bonding", "Versatile nature of carbon", "Homologous series", "Ethanol and Ethanoic acid", "Soaps and detergents"]},

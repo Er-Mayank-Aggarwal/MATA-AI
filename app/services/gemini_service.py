@@ -34,7 +34,7 @@ def generate_questions(prompt: str) -> dict:
                 ],
                 model=settings.groq_model,
                 response_format={"type": "json_object"},
-                temperature=0.5,
+                temperature=0.7,
                 max_tokens=4096,
             )
             
