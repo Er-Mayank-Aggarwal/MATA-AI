@@ -61,15 +61,15 @@ Generate questions in this exact distribution:
 ---
 
 ## STEP 3 — QUALITY STANDARDS (Strictly follow)
-- **UNIFORMITY & VARIETY:** Every question must be unique. If you generate multiple questions for the same topic (e.g., 'Redox'), ensure they test different sub-concepts (e.g., oxidizing agents vs. balancing a redox equation) or different application levels (e.g., direct definition vs. identifying redox in a real-life scenario).
-- **NO CROSS-TYPE DUPLICATION:** Do NOT ask the same question in different formats. For example, if you ask for the definition of 'Corrosion' in a Short Answer, do NOT make 'Corrosion' the main focus of a Long Answer.
-- **COMPETENCY-BASED:** Focus on 'how' and 'why' rather than just 'what'. Use 'Imagine', 'Predict', 'Identify the error', or 'Analyze the observation' style phrasing where possible.
-- **CBSE Standard:** Every question must be unambiguous and have a definitive correct answer.
-- **MCQs:** all 4 options must be plausible; distractors should test real misconceptions.
-- **Assertion-Reason:** test understanding of causality; avoid simple factual combinations.
-- **Language:** clear, standard CBSE English — no ambiguity.
-- **SYLLABUS COMPLIANCE:** Use the provided topics as the scope. You MAY use your internal knowledge of sub-topics, examples, and reactions that fall naturally under these broad topics, as long as they are part of the standard Class {class_number} CBSE syllabus.
-- Spread questions across ALL topics listed above to ensure full chapter coverage.
+- **GRANULAR TOPIC ALLOCATION:** Every question must target a specific *unique* sub-topic or observation (e.g., instead of just 'Decomposition', ask about the 'color of fumes when Lead Nitrate is heated'). 
+- **NO GENERIC QUESTIONS:** Avoid "What is [Topic]?" or "Define [Topic]" unless absolutely necessary. Instead, use "Identify the type of reaction in...", "Predict the observation when...", or "Explain why [Specific Event] happens...".
+- **LONG ANSWER STRUCTURE:** Every Long Answer (4-5 Marks) MUST be either a multi-part question (a, b, c) or a scenario-based analysis. It should NEVER be a simple descriptive essay on a broad topic.
+- **SECTION-BASED PARTITIONING:** Do NOT repeat the same specific observation (e.g., Rusting) in more than one question across the entire set. 
+- **STRICT DISTRIBUTION:** Generate exactly the number of questions requested for each type. 
+- **COMPETENCY-BASED:** Focus on 'how' and 'why'.
+- **CBSE Standard:** Unambiguous language, definitive correct answers.
+- **SYLLABUS COMPLIANCE:** Use the provided topics as the scope.
+- **FULL COVERAGE:** Spread questions across ALL topics listed above.
 
 ---
 

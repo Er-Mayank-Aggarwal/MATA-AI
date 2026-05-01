@@ -23,7 +23,22 @@ GROUNDING_DATA = {
             15: ["Classical definition of probability", "Problems on cards, dice, and coins"]
         },
         "science": {
-            1: ["Balanced chemical equations", "Types of reactions: Combination, Decomposition, Displacement, Double Displacement", "Oxidation and Reduction (Redox)", "Exothermic and Endothermic reactions", "Corrosion and Rancidity in daily life"],
+            1: [
+                "Balanced chemical equations: Writing and balancing with state symbols",
+                "Combination reactions: Burning of coal, Formation of water",
+                "Thermal decomposition: Ferrous sulphate crystals, Lead nitrate powder",
+                "Electrolytic decomposition: Water electrolysis (H2 vs O2 volume)",
+                "Photolytic decomposition: Silver chloride/bromide in sunlight (Black & White photography)",
+                "Displacement: Iron nails in Copper Sulphate solution (Color changes)",
+                "Double Displacement: Barium Chloride and Sodium Sulphate (Precipitate formation)",
+                "Oxidation & Reduction: Identifying oxidizing/reducing agents in a reaction",
+                "Redox in daily life: Respiration as exothermic, Decomposition of vegetable matter",
+                "Exothermic vs Endothermic: Quicklime and water vs decomposition of Lead Nitrate",
+                "Corrosion: Rusting of iron, Blackening of silver, Green coating on copper",
+                "Rancidity: Prevention using Nitrogen, antioxidants, airtight containers",
+                "Precipitation reactions: Formation of insoluble salts",
+                "Observation-based: Color of Silver Chloride, Lead Nitrate, Nitrogen Dioxide fumes"
+            ],
             2: ["pH scale importance in daily life", "Preparation and uses of Bleaching Powder, Baking Soda, Washing Soda, POP", "Properties of acids/bases"],
             3: ["Reactivity series and its application", "Properties of ionic compounds", "Metallurgy: Roasting and Calcination"],
             4: ["Covalent bonding in carbon", "Homologous series", "Saponification and Esterification", "Nomenclature"],
